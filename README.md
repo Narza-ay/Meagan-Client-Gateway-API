@@ -10,7 +10,7 @@
 
 # 🔮 Meagan Client API Gateway
 
-Bienvenue sur le **Meagan Client API Gateway** \! Ce projet sert de point d'entrée central pour tous les services API destinés aux clients. Il offre un routage dynamique, une gestion robuste des erreurs et une puissante interface en ligne de commande (CLI) pour une administration simplifiée des services.
+Bienvenue sur le **Meagan Client API Gateway** \! Ce projet sert de point d'entrée central pour tous les services API destinés à Meagan Client. Il offre un routage dynamique, une gestion robuste des erreurs et une puissante interface en ligne de commande (CLI) pour une administration simplifiée des services.
 
 -----
 
