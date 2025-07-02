@@ -25,61 +25,7 @@ Bienvenue sur le **Meagan Client API Gateway** \! Ce projet sert de point d'entr
 
 -----
 
-## 🚀 Démarrage Rapide
-
-Ces instructions vous aideront à obtenir une copie du projet et à le faire fonctionner sur votre machine locale pour le développement et les tests.
-
-### Prérequis
-
-Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
-
-  * **Node.js** : [https://nodejs.org/](https://nodejs.org/) (la version LTS est recommandée)
-  * **npm** (fourni avec Node.js) ou **Yarn**
-
-### Installation
-
-1.  **Cloner le dépôt** :
-
-    ```bash
-    git clone https://github.com/votre-nom-utilisateur/meagan-api-gateway.git
-    cd meagan-api-gateway
-    ```
-
-2.  **Installer les dépendances** :
-
-    ```bash
-    npm install
-    # ou
-    yarn install
-    ```
-
-3.  **Créer un fichier `.env`** :
-    À la racine de votre projet, créez un fichier nommé `.env` et ajoutez vos variables d'environnement.
-
-    ```
-    GATEWAY_PORT=3000
-    # Exemples d'URLs de service (celles-ci peuvent être définies dynamiquement par la passerelle si les services sont dans le dossier 'services')
-    # AUTH_SERVICE_URL=http://localhost:3001
-    # ECONOMY_SERVICE_URL=http://localhost:3002
-    # GAME_SERVICE_WS_URL=ws://localhost:5000
-    ```
-
-      * `GATEWAY_PORT` : Le port sur lequel la passerelle API va s'exécuter (par défaut : `3000`).
-      * Bien que vous puissiez définir des URLs de service spécifiques ici, la passerelle est conçue pour découvrir dynamiquement les services à l'intérieur du répertoire `services/` et leur attribuer des ports à partir de `3001`.
-
-### Lancer la Passerelle
-
-Pour démarrer l'API Gateway :
-
-```bash
-npm start
-# ou
-node index.js
-```
-
-Au démarrage, la passerelle scannera le répertoire `services` à la recherche de fichiers JavaScript, les enregistrera comme services, puis vous présentera une interface CLI interactive.
-
------
+bientot
 
 ## 🕹️ Commandes CLI
 
@@ -97,32 +43,6 @@ Une fois la passerelle en cours d'exécution, vous pouvez interagir avec elle di
   * **`ping`** : Renvoie le temps de réponse du serveur.
   * **`help`** : Affiche une liste de toutes les commandes disponibles et leurs descriptions.
   * **`exit`** : Arrête l'API Gateway.
-
------
-
-## 📁 Structure du Projet
-
-```
-.
-├── index.js                  # Application principale de la Passerelle API
-├── .env.example              # Exemple de fichier de variables d'environnement
-├── package.json              # Dépendances et scripts du projet
-├── services/                 # Répertoire de vos microservices
-│   ├── auth.js               # Exemple de Service d'Authentification
-│   ├── economy.js            # Exemple de Service d'Économie
-│   └── game.js               # Exemple de Service de Jeu (peut être basé sur WebSocket)
-└── README.md                 # Ce fichier
-```
-
-### Répertoire des Services (`services/`)
-
-Placez vos fichiers de microservices individuels (par exemple, `auth.js`, `economy.js`) à l'intérieur du répertoire `services/`. La passerelle détectera automatiquement tout fichier `.js` dans ce répertoire et le gérera comme un service.
-
-Chaque service devrait idéalement :
-
-  * Écouter sur un port (que la passerelle assignera dynamiquement, à partir de `3001`).
-  * Exposer un point de terminaison `/health` pour les vérifications de santé (pour les services HTTP).
-  * Gérer sa propre logique et ses responsabilités spécifiques.
 
 -----
 
