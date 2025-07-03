@@ -33,6 +33,7 @@ const services = {};
  */
 const commands = {
     'start all': {
+        usage: 'start all',
         description: 'Lance tous les services découverts.',
         execute: (args, menuCallback) => {
             let startedCount = 0;
@@ -49,7 +50,8 @@ const commands = {
             }
         }
     },
-    'start <serviceName>': {
+    'start': {
+        usage: 'start <serviceName>',
         description: 'Lance un service spécifique.',
         execute: (args, menuCallback) => {
             if (args.length !== 1) {
@@ -59,7 +61,8 @@ const commands = {
             startService(args[0]);
         }
     },
-    'stop <serviceName>': {
+    'stop': {
+        usage: 'stop <serviceName>',
         description: 'Arrête un service spécifique.',
         execute: (args, menuCallback) => {
             if (args.length !== 1) {
@@ -70,6 +73,7 @@ const commands = {
         }
     },
     'list services': {
+        usage: 'list services',
         description: 'Affiche la liste et le statut de tous les services découverts.',
         execute: (args, menuCallback) => {
             menuCallback();
@@ -107,7 +111,8 @@ ${chalk.strikethrough.dim('                                                     
 `);
         }
     },
-    'find <email>': {
+    'find': {
+        usage: 'find <email>',
         description: 'Recherche des utilisateurs par email ou ID.',
         execute: (args, menuCallback) => {
             if (args.length < 1) {
@@ -120,7 +125,8 @@ ${chalk.strikethrough.dim('                                                     
             menuCallback(`Recherche en cours pour: "${chalk.cyan(query)}"... (Logique de recherche à implémenter)`);
         }
     },
-    'set role <role> <userId>': {
+    'set role': {
+        usage: 'set role <role> <userId>',
         description: 'Ajoute un rôle à un utilisateur.',
         execute: (args, menuCallback) => {
             if (args.length < 2) {
@@ -133,7 +139,8 @@ ${chalk.strikethrough.dim('                                                     
             menuCallback(`Tentative d'ajouter le rôle "${chalk.magenta(role)}" à l'utilisateur "${chalk.green(userId)}"... (Logique à implémenter)`);
         }
     },
-    'remove role <role> <userId>': {
+    'remove role': {
+        usage: 'remove role <role> <userId>',
         description: 'Retire un rôle à un utilisateur.',
         execute: (args, menuCallback) => {
             if (args.length < 2) {
@@ -146,7 +153,8 @@ ${chalk.strikethrough.dim('                                                     
             menuCallback(`Tentative de retirer le rôle "${chalk.magenta(role)}" à l'utilisateur "${chalk.green(userId)}"... (Logique à implémenter)`);
         }
     },
-    'list roles <.||userId>': {
+    'list roles': {
+        usage: 'list roles <.||userId>',
         description: 'Affiche les rôles d\'un utilisateur ou tous les rôles disponibles.',
         execute: (args, menuCallback) => {
             if (args.length === 1) {
@@ -164,12 +172,14 @@ ${chalk.strikethrough.dim('                                                     
         }
     },
     'time': {
+        usage: 'time',
         description: 'Affiche l\'heure actuelle du serveur.',
         execute: (args, menuCallback) => {
             menuCallback(`Il est ${chalk.cyan(new Date().toLocaleTimeString('fr-FR'))}.`);
         }
     },
     'ping': {
+        usage: 'ping',
         description: 'Renvoie le temps de réponse du serveur.',
         execute: (args, menuCallback) => {
             const startTime = Date.now();
@@ -178,6 +188,7 @@ ${chalk.strikethrough.dim('                                                     
         }
     },
     'help': {
+        usage: 'help',
         description: 'Affiche cette aide.',
         execute: (args, menuCallback) => {
             menuCallback(); // Réaffiche le menu principal sans message
@@ -186,7 +197,7 @@ ${chalk.strikethrough.dim('                                                     
 `);
             // Génère dynamiquement la liste des commandes
             for (const cmd in commands) {
-                console.log(`          "${chalk.yellow(cmd)}"${' '.repeat(Math.max(0, 30 - cmd.length))} : ${commands[cmd].description}`);
+                console.log(`          "${chalk.yellow(commands[cmd].usage)}"${' '.repeat(Math.max(0, 30 - commands[cmd].usage.length))} : ${commands[cmd].description}`);
             }
             console.log(`          ""${' '.repeat(Math.max(0, 30 - ''.length))} : Affiche le menu principal.`);
             console.log(`
@@ -195,6 +206,7 @@ ${chalk.strikethrough.dim('                                                     
         }
     },
     'exit': {
+        usage: 'exit',
         description: 'Ferme le serveur.',
         execute: (args, menuCallback) => {
             menuCallback("Fermeture du serveur...");
