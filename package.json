@@ -9,7 +9,7 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Narza_ay",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.1.0"
